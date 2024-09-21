@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "52adb210-5316-4bd9-9ae3-a61cf5db6285",
+		"name": "Spring boot tp Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11763049"
+	},
+	"item": [
+		{
+			"name": "SECURITY",
+			"item": [
+				{
+					"name": "get token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "grantType",
+									"value": "password",
+									"description": "password|| refreshToken",
+									"type": "text"
+								},
+								{
+									"key": "refreshToken",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTVUNVUklUWS1TRVJWSUNFIiwic3ViIjoiYWRtaW4iLCJleHAiOjE2OTgxNjE4MTIsImlhdCI6MTY5ODE2MDAxMn0.PyYCaRSS4bCEAdSbhuZPlAXP1lfJ0mhovSplYA8K7eLn4gdeoKlkGS2TdqbYhNJoLF9HQMykjTEER2YzhWco-L2pgd0uhYcgsTAPLl4oA9e1uB9y0SdDEbNlGranaa7ZQLA1JxZPXJG0p_IChUN1n5A8Ij10s_KUzd_p3jP5OFO0MWKs5P8xEDJBSKq5YTbdjp1bEiwHdPsi4DfNOenIwBGX5zZTIH0Z1INvffUtlsuJGWaHc5bHfXO8gsmsk9faSSWqkN48bzNIRPR6Jeb77cfisQF6-NnOq4xj1oGizKiFUw2mDh0GaZezWXcqoivHng0W-dCrCuaUb7E5GXpxQg",
+									"type": "text"
+								},
+								{
+									"key": "withRefrechToken",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9999/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "datatest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTVUNVUklUWS1TRVJWSUNFIiwic3ViIjoiYWRtaW4iLCJleHAiOjE2OTgxNTkzMzIsImlhdCI6MTY5ODE1OTI3Miwic2NvcGUiOiJBRE1JTiJ9.nToIo1CH7iX7NZgxOf0guYFj_i898NhrUwn9i0oAkI7dIgum8NUDFYLwRt24lmCRJKZvG3-7rittmPGXQ3KhDN5Hj5hi_ouKRnhFKI0Bm7Qva49DkBes6SNWQv7MGeEknIAv2jocX2a4KtJVIloiSUJHT41w53O6NnAx9c7D0LOadKHSf9wgGY1X32QuGNPRWWfOxrvpgkqLlZikRCMDEO-1QuE3CZg2y4duJt1VNY63M40p_kT4L5iP0skqDEc3JpPOiF-7EKRNnkDa1gC8uyEohbe8b-gJckI-pzC80MRTUpOAoPk_bZ9BkEAfrjVfsDgRs4Q9CsnXCedhOrMSFg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "data",
+									"value": "im a value saved",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9999/datatest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9999",
+							"path": [
+								"datatest"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CUSTOMER",
+			"item": [
+				{
+					"name": "customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTVUNVUklUWS1TRVJWSUNFIiwic3ViIjoiYWRtaW4iLCJleHAiOjE2OTgxNjM5MjksImlhdCI6MTY5ODE2MzYyOSwic2NvcGUiOiJBRE1JTiJ9.RPDAeuZ9ieTKSV1JpZ6hByXhC3bDEkyk7rTOucIsVbNNbdB5UYnyb6i-i2Icuex_kF2sLb3hGsfq4wp1y5oq04s9xPbgJvniHICCp7xj_CG6TqaQXy14AAkEMetoh8eBYwoHc-ii5R3uGPyE772t0CjyZyuxnUZ2JsTPmI8y6y2MuGZacrLXH2yEAu8fjlqK3AoxlhizFtGNJpBREsURHnPjY7J0NqSI--RMAxBCt0S2f1R-SCCOEoEHwJP7e0dEis5KsEEMdt4br8AL-PyydGzYZPCcPjrOyW4C9PKKQQFYaSoMEW3tHDiPEHlkiRfIYac9SMaZkDAjihFHT6L0RQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\":\"hajar\",\r\n\t\"email\":\"hajar4@gmail.com\",\r\n\t\"dob\":\"2004-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/v1/customer/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n\t\"name\":\"updatedname\",\r\n\t\"email\":\"updated@gmail.com\",\r\n\t\"dob\":\"2004-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/v1/customer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"v1",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FRAUDSTER",
+			"item": [
+				{
+					"name": "customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJTVUNVUklUWS1TRVJWSUNFIiwic3ViIjoiYWRtaW4iLCJleHAiOjE2OTgxNjM5MjksImlhdCI6MTY5ODE2MzYyOSwic2NvcGUiOiJBRE1JTiJ9.RPDAeuZ9ieTKSV1JpZ6hByXhC3bDEkyk7rTOucIsVbNNbdB5UYnyb6i-i2Icuex_kF2sLb3hGsfq4wp1y5oq04s9xPbgJvniHICCp7xj_CG6TqaQXy14AAkEMetoh8eBYwoHc-ii5R3uGPyE772t0CjyZyuxnUZ2JsTPmI8y6y2MuGZacrLXH2yEAu8fjlqK3AoxlhizFtGNJpBREsURHnPjY7J0NqSI--RMAxBCt0S2f1R-SCCOEoEHwJP7e0dEis5KsEEMdt4br8AL-PyydGzYZPCcPjrOyW4C9PKKQQFYaSoMEW3tHDiPEHlkiRfIYac9SMaZkDAjihFHT6L0RQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9091/api/v1/fraud-check/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9091",
+							"path": [
+								"api",
+								"v1",
+								"fraud-check",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "customer Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://fraud/api/v1/fraud-check/3",
+							"protocol": "http",
+							"host": [
+								"fraud"
+							],
+							"path": [
+								"api",
+								"v1",
+								"fraud-check",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ACTUATOR",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/actuator/refresh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"actuator",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

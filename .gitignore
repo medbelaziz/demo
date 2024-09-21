@@ -1,0 +1,9 @@
+.settings
+.project
+.classpath
+.factorypath
+.project
+/target/*
+*/target/*
+kafka_2.13-3.5.0.tgz
+kafka_2.13-3.5.0/
